@@ -21,7 +21,7 @@ Normal case:
 5. Server responses with requested resource.
 
 If access token expires:
-3. User uses Access token to retrieve resource.
+`&nbsp;3.` User uses Access token to retrieve resource.
 4. Server verifies Access token. (Access token expired)
 5. Server verifies Refresh token. (Refresh token not expired)
 6. Server renews Access token and Refresh token and sends to user.
@@ -30,7 +30,7 @@ If access token expires:
 9. Server responses with requested resource.
 
 If refresh token expires:
-5. Server verifies Refresh token. (Refresh token expired)
+`&nbsp;5.` Server verifies Refresh token. (Refresh token expired)
 6. User required to re-authenticate. (Login)
 7. Back to normal case.
 
