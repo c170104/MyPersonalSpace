@@ -22,3 +22,40 @@ Content-Type: application/json
 GET http://localhost:8000/api/user
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDI2Njg3NTEsImV4cCI6MTYwMjY3NTk1MSwiYXVkIjoibmV3dXNlckBlbWFpbC5jb20iLCJpc3MiOiJteXdlYi5jb20ifQ.DqspmsW2Sbp6_VTUzVJ0y_wbBWj_RhMnLNrTYn9Sqd8
+
+###
+
+POST http://localhost:8000/api/product/
+Content-Type: application/json
+
+{
+    "name": "Item4",
+    "description": "Some Item3",
+    "price": 15.5,
+    "image_url": "asdss"
+}
+
+
+###
+
+GET http://localhost:8000/api/product/
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/product/1
+
+###
+
+PUT http://localhost:8000/api/product/4
+Content-Type: application/json
+
+{
+    "name": "Item55"
+}
+
+###
+
+DELETE http://localhost:8000/api/product/5
+
+###
