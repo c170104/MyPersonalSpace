@@ -1,0 +1,24 @@
+// Login (Authorized)
+POST http://localhost:8000/api/authentication/login
+Content-Type: application/json
+
+{
+    "email": "newuser@email.com",
+    "password": "1234"
+}
+
+###
+
+POST http://localhost:8000/api/authentication/register
+Content-Type: application/json
+
+{
+    "email": "newuser2@email.com",
+    "password": "1234"
+}
+
+###
+
+GET http://localhost:8000/api/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDI2Njg3NTEsImV4cCI6MTYwMjY3NTk1MSwiYXVkIjoibmV3dXNlckBlbWFpbC5jb20iLCJpc3MiOiJteXdlYi5jb20ifQ.DqspmsW2Sbp6_VTUzVJ0y_wbBWj_RhMnLNrTYn9Sqd8
