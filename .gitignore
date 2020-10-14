@@ -4,3 +4,10 @@ build
 npm-debug.log
 .env
 .DS_Store
+
+# env
+.env
+.eslintrc
+
+# doc
+*.doc*
