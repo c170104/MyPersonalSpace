@@ -59,11 +59,7 @@ mongoose.connect(uri, {
   }
 });
 
-// Web Routing
-const userProfileRouter = require('./routes/user');
-// const invalidRouter = require('./routes/invalid');
-
-app.use('/profile', userProfileRouter);
+// Web API Endpoints
 app.use('/api/authentication', authenticationRouter);
 app.use('/api/user', authenticateAccessToken, userRouter);
 app.use('/api/product', productRouter);

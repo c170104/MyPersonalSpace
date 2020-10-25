@@ -9,6 +9,7 @@ Content-Type: application/json
 
 ###
 
+// User Registration
 POST http://localhost:8000/api/authentication/register
 Content-Type: application/json
 
@@ -19,12 +20,14 @@ Content-Type: application/json
 
 ###
 
+// User Profile
 GET http://localhost:8000/api/user
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDI2Njg3NTEsImV4cCI6MTYwMjY3NTk1MSwiYXVkIjoibmV3dXNlckBlbWFpbC5jb20iLCJpc3MiOiJteXdlYi5jb20ifQ.DqspmsW2Sbp6_VTUzVJ0y_wbBWj_RhMnLNrTYn9Sqd8
 
 ###
 
+// Add new item
 POST http://localhost:8000/api/product/
 Content-Type: application/json
 
@@ -38,15 +41,18 @@ Content-Type: application/json
 
 ###
 
+// Get all products
 GET http://localhost:8000/api/product/
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8000/api/product/1
+// Get product of id 1
+GET http://localhost:8000/api/product/7
 
 ###
 
+// Update product of id 4
 PUT http://localhost:8000/api/product/4
 Content-Type: application/json
 
@@ -56,6 +62,7 @@ Content-Type: application/json
 
 ###
 
+// Delete product of id 5
 DELETE http://localhost:8000/api/product/5
 
 ###

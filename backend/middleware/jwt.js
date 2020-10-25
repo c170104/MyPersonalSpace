@@ -24,27 +24,7 @@ function authenticateAccessToken(req, res, next)  {
     });
 }
 
-function authenticateRefreshToken(req, res, next)   {
-    const rfToken = req.cookies["jwt-rf-tkn"];
-
-    if (!rfToken) return next(createError.Unauthorized());
-
-    verify(rfToken, process.env.JWT_REFRESH_TOKEN_SECRET, (error, user) => {
-        if (error)    {
-            errorHandler({
-                message: "Failed to authenticate refresh token.",
-                error
-            });
-            // redirect to login?
-            return next(createError.Forbidden());
-        }
-        req.user = user;
-        next();
-    });
-}
-
 module.exports = {
     authenticateAccessToken,
-    authenticateRefreshToken
 }
 

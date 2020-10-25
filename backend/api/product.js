@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
             });
         })
         .catch(err => {
-            return responseBuilder(res, 200, {
+            errorHandler(err);
+            return responseBuilder(res, 500, {
                 message: "Fail to query.",
                 validation: {},
                 error: err,
@@ -35,16 +36,25 @@ router.get('/:id', async (req, res) => {
     await Product
         .findOne({ id: id })
         .then( product => {
-            return responseBuilder(res, 200, {
-                message: "",
-                validator: {},
-                error: {},
-                data: product,
-            });
+            if (product)
+                return responseBuilder(res, 200, {
+                    message: `Product id: ${id}.`,
+                    validator: {},
+                    error: {},
+                    data: product,
+                });
+            else
+                return responseBuilder(res, 200, {
+                    message: `No such product of id: ${id}.`,
+                    validator: {},
+                    error: {},
+                    data: {},
+                });
         })
         .catch( err => {
-            return responseBuilder(res, 200, {
-                message: "",
+            errorHandler(err);
+            return responseBuilder(res, 500, {
+                message: "Internal Server error.",
                 validator: {},
                 error: err,
                 data: {},
@@ -78,7 +88,8 @@ router.post('/', async (req, res) => {
             });
         })
         .catch( err => {
-            return responseBuilder(res, 200, {
+            errorHandler(err);
+            return responseBuilder(res, 500, {
                 message: `Failed to add product ${name}.`,
                 validation: {},
                 error: err,
@@ -122,6 +133,7 @@ router.put('/:id', async (req, res) => {
                     });
                 })
                 .catch( err => {
+                    errorHandler(err);
                     return responseBuilder(res, 200, {
                         message: `Fail to update product id ${id}.`,
                         validator: {},
@@ -131,7 +143,8 @@ router.put('/:id', async (req, res) => {
                 });
         })
         .catch( err => {
-            return responseBuilder(res, 200, {
+            errorHandler(err);
+            return responseBuilder(res, 500, {
                 message: "No such product.",
                 validator: {},
                 error: err,
@@ -162,8 +175,9 @@ router.delete('/:id', async (req, res) => {
                 });
         })
         .catch( err => {
-            return responseBuilder(res, 200, {
-                message: "No such product.",
+            errorHandler(err);
+            return responseBuilder(res, 500, {
+                message: "Internal Server Error.",
                 validator: {},
                 error: err,
                 data: {},
