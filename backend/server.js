@@ -8,7 +8,12 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const { authenticationRouter, userRouter } = require('./api/api');
+const { 
+  authenticationRouter, 
+  userRouter, 
+  productRouter, 
+} = require('./api/api');
+
 const { authenticateAccessToken } = require('./middleware/jwt');
 const { errorRouteHandler } = require('./middleware/errorHandler');
 
@@ -60,7 +65,8 @@ const userProfileRouter = require('./routes/user');
 
 app.use('/profile', userProfileRouter);
 app.use('/api/authentication', authenticationRouter);
-app.use('/api/user', authenticateAccessToken, userRouter)
+app.use('/api/user', authenticateAccessToken, userRouter);
+app.use('/api/product', productRouter);
 
 app.get("/protected", authenticateAccessToken, async (req, res) => {
   res.send(`Welcome ${req.user.email} to the protected world.`);

@@ -3,7 +3,6 @@ const crypto = require("crypto");
 
 const { responseBuilder } = require('../tools/apiResponseBuilder');
 const { errorHandler } = require('../tools/errorHandler');
-const createError = require("http-errors");
 
 const router = express.Router();
 
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
 
     User.findOne({ email: userEmail })
         .then(user => {
-
             return responseBuilder(res, 200, {
                 message: `${userEmail} profile.`,
                 validator: {},
@@ -28,6 +26,7 @@ router.get('/', async (req, res) => {
             })
         })
         .catch( (err) => {
+            errorHandler(err);
             return responseBuilder(res, 200, {
                 message: {},
                 validator: {},
@@ -36,12 +35,5 @@ router.get('/', async (req, res) => {
             });
         });
 });
-
-router.get('/:userEmail', async (req, res) => {
-    const userEmail = req.user;
-
-
-});
-
 
 module.exports = router;
